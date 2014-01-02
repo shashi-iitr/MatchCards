@@ -154,20 +154,20 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="flips: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSX-pW-A2i">
-                                <rect key="frame" x="129" y="388" width="67" height="21"/>
+                                <rect key="frame" x="87" y="388" width="93" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10P-5D-35J">
-                                <rect key="frame" x="204" y="385" width="102" height="21"/>
+                                <rect key="frame" x="204" y="388" width="102" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="selected card: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fas-CA-xuI">
-                                <rect key="frame" x="12" y="282" width="150" height="21"/>
+                                <rect key="frame" x="12" y="282" width="273" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -204,7 +204,7 @@
                                 <rect key="frame" x="58" y="340" width="245" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="sliderPos:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Ytm-4c-Fxz"/>
+                                    <action selector="sliderPosition:" destination="vXZ-lx-hvc" eventType="valueChanged" id="oSb-g3-Fgr"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="history" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Sh-kh-Mag">
@@ -219,14 +219,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="cardGame" id="v1s-RB-Zmg"/>
                     <connections>
-                        <outlet property="displayCards" destination="Fas-CA-xuI" id="dTd-6t-WVd"/>
-                        <outlet property="displayMessage" destination="UOY-ge-Iuq" id="F7P-Ii-DfX"/>
+                        <outlet property="displayCardsLabel" destination="Fas-CA-xuI" id="NcT-6T-9BR"/>
+                        <outlet property="displayMessageLabel" destination="UOY-ge-Iuq" id="YDg-bb-hO5"/>
                         <outlet property="flipLabel" destination="cSX-pW-A2i" id="Ltr-Ro-t3y"/>
                         <outlet property="historyLabel" destination="1Sh-kh-Mag" id="yNz-sg-v61"/>
-                        <outlet property="reset" destination="But-aK-z96" id="z2N-70-FgA"/>
+                        <outlet property="resetButton" destination="But-aK-z96" id="fJk-Fr-PFI"/>
                         <outlet property="scoreLabel" destination="10P-5D-35J" id="mzW-MN-XOv"/>
                         <outlet property="setDifficultyLevel" destination="BYF-8k-qhg" id="VQk-hR-X0X"/>
-                        <outlet property="slidePosition" destination="dzt-Y4-ZnO" id="UxY-Oy-4T3"/>
+                        <outlet property="slider" destination="dzt-Y4-ZnO" id="y7R-YP-v4p"/>
                         <outletCollection property="cardButtons" destination="183-ML-jTZ" id="2UY-7a-0Cj"/>
                         <outletCollection property="cardButtons" destination="kV3-1S-1lc" id="GMC-jh-J6Y"/>
                         <outletCollection property="cardButtons" destination="Cym-lF-pa5" id="bwO-8G-H1f"/>
@@ -243,7 +243,51 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-56" y="720"/>
+            <point key="canvasLocation" x="-121" y="761"/>
+        </scene>
+        <!--Modified Set Game View Controller - Item-->
+        <scene sceneID="lZf-rR-8Zo">
+            <objects>
+                <viewController id="b3Q-am-hDd" customClass="ModifiedSetGameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="95w-za-fcT"/>
+                        <viewControllerLayoutGuide type="bottom" id="b30-nV-tVU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p8E-K7-Vnj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JkM-Cz-Nnn" customClass="PlayingCardView">
+                                <rect key="frame" x="70" y="100" width="180" height="280"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="LII-Eo-tOR" appends="YES" id="SgX-u2-Jq2"/>
+                                    <outletCollection property="gestureRecognizers" destination="l8b-nc-tKQ" appends="YES" id="4vF-gK-Mmw"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.074977831980000006" green="0.78125" blue="0.11270660170000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="vbi-FY-q4t"/>
+                    <connections>
+                        <outlet property="sgPlayingCard" destination="JkM-Cz-Nnn" id="4pA-j5-9a0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5du-lT-ewA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="LII-Eo-tOR">
+                    <connections>
+                        <action selector="swipe:" destination="b3Q-am-hDd" id="uZF-sQ-22B"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <pinchGestureRecognizer id="l8b-nc-tKQ">
+                    <connections>
+                        <action selector="pinchFaceCard:" destination="b3Q-am-hDd" id="asT-ir-tQk"/>
+                    </connections>
+                </pinchGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="191" y="1361"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AjO-g6-gma">
@@ -258,11 +302,12 @@
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="41P-lb-i9V"/>
                         <segue destination="ErM-I6-u9P" kind="relationship" relationship="viewControllers" id="O6e-0d-1C6"/>
+                        <segue destination="b3Q-am-hDd" kind="relationship" relationship="viewControllers" id="zqc-ZD-afJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGZ-m8-qHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-511" y="1048"/>
+            <point key="canvasLocation" x="-915" y="1012"/>
         </scene>
         <!--Set Game View Controller - setGame-->
         <scene sceneID="RJK-Gq-k1h">
@@ -436,55 +481,55 @@
                                     <action selector="clickSGCard:" destination="ErM-I6-u9P" eventType="touchUpInside" id="inR-Gx-VNC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3C-7c-bnP">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3C-7c-bnP">
                                 <rect key="frame" x="20" y="328" width="58" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="clickSGCard:" destination="ErM-I6-u9P" eventType="touchUpInside" id="4VG-E8-kee"/>
+                                    <action selector="clickOptionCard:" destination="ErM-I6-u9P" eventType="touchUpInside" id="yoJ-b2-FfF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEc-Z5-03s">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEc-Z5-03s">
                                 <rect key="frame" x="86" y="328" width="58" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="clickSGCard:" destination="ErM-I6-u9P" eventType="touchUpInside" id="1hT-Ho-x39"/>
+                                    <action selector="clickOptionCard:" destination="ErM-I6-u9P" eventType="touchUpInside" id="mCM-74-1P7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2u-bV-TyR">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2u-bV-TyR">
                                 <rect key="frame" x="152" y="328" width="58" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="clickSGCard:" destination="ErM-I6-u9P" eventType="touchUpInside" id="Aci-fP-vO7"/>
+                                    <action selector="clickOptionCard:" destination="ErM-I6-u9P" eventType="touchUpInside" id="BnM-z6-chS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roY-cu-g6v">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roY-cu-g6v">
                                 <rect key="frame" x="218" y="328" width="58" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="clickSGCard:" destination="ErM-I6-u9P" eventType="touchUpInside" id="a21-Sg-y9r"/>
+                                    <action selector="clickOptionCard:" destination="ErM-I6-u9P" eventType="touchUpInside" id="HRi-mH-he9"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="score 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBX-mo-tMC">
-                                <rect key="frame" x="0.0" y="405" width="84" height="21"/>
+                                <rect key="frame" x="0.0" y="405" width="62" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGi-ZU-4i9">
-                                <rect key="frame" x="92" y="401" width="34" height="30"/>
+                                <rect key="frame" x="70" y="401" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="reset">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -493,25 +538,29 @@
                                     <action selector="resetDisplayAlert:" destination="ErM-I6-u9P" eventType="touchUpInside" id="7cO-iG-MqB"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="matched" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btg-OH-TyW">
-                                <rect key="frame" x="186" y="405" width="51" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="unmatched" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQH-iu-AdM">
-                                <rect key="frame" x="245" y="405" width="69" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="m" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btg-OH-TyW">
+                                <rect key="frame" x="168" y="405" width="152" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="count" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJn-MU-ZEe">
-                                <rect key="frame" x="134" y="405" width="44" height="21"/>
+                                <rect key="frame" x="112" y="405" width="10" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3uq-uH-4gC">
+                                <rect key="frame" x="130" y="401" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="O">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="displayOptionButton:" destination="ErM-I6-u9P" eventType="touchUpInside" id="bDZ-xL-dZT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -521,7 +570,6 @@
                         <outlet property="displayScore" destination="OBX-mo-tMC" id="BlO-eQ-vIk"/>
                         <outlet property="reset" destination="cGi-ZU-4i9" id="4BR-N0-b8f"/>
                         <outlet property="rightMatch" destination="btg-OH-TyW" id="sWL-jT-X33"/>
-                        <outlet property="wrongMatch" destination="TQH-iu-AdM" id="3fr-fG-KSB"/>
                         <outletCollection property="SGCardButtons" destination="OIz-If-AMY" id="9w5-gw-XPU"/>
                         <outletCollection property="SGCardButtons" destination="us0-tE-1SG" id="5LY-t4-2cz"/>
                         <outletCollection property="SGCardButtons" destination="J8Z-Up-yU9" id="8oq-QL-MkW"/>
@@ -538,15 +586,15 @@
                         <outletCollection property="SGCardButtons" destination="XKb-j7-2aD" id="L6o-Az-5tt"/>
                         <outletCollection property="SGCardButtons" destination="53l-A9-USb" id="8gG-dr-dh2"/>
                         <outletCollection property="SGCardButtons" destination="WGd-Fl-4xS" id="Jzr-Es-t5D"/>
-                        <outletCollection property="SGCardButtons" destination="s3C-7c-bnP" id="FP1-7E-6K4"/>
-                        <outletCollection property="SGCardButtons" destination="QEc-Z5-03s" id="tXK-7W-ZhO"/>
-                        <outletCollection property="SGCardButtons" destination="v2u-bV-TyR" id="isF-Ew-jHE"/>
-                        <outletCollection property="SGCardButtons" destination="roY-cu-g6v" id="Ttx-ow-YsC"/>
+                        <outletCollection property="SGOptionCardButtons" destination="s3C-7c-bnP" id="vAB-85-KF5"/>
+                        <outletCollection property="SGOptionCardButtons" destination="QEc-Z5-03s" id="FdD-CN-LH7"/>
+                        <outletCollection property="SGOptionCardButtons" destination="v2u-bV-TyR" id="69D-16-vG6"/>
+                        <outletCollection property="SGOptionCardButtons" destination="roY-cu-g6v" id="vBk-jT-bo1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGx-6L-Ndr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-139" y="1294"/>
+            <point key="canvasLocation" x="-282" y="1546"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

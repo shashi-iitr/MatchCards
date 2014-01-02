@@ -17,15 +17,15 @@
 //connect all the cardButtons to the controller from the view
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 
-@property (weak, nonatomic) IBOutlet UILabel *displayMessage;
+@property (weak, nonatomic) IBOutlet UILabel *displayMessageLabel;
 
 @property (strong, nonatomic) cardMatchingGame *game;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *displayCards;
+@property (weak, nonatomic) IBOutlet UILabel *displayCardsLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *setDifficultyLevel;
-@property (weak, nonatomic) IBOutlet UIButton *reset;
-@property (weak, nonatomic) IBOutlet UISlider *slidePosition; // slider.value
+@property (weak, nonatomic) IBOutlet UIButton *resetButton;
+@property (weak, nonatomic) IBOutlet UISlider *slider; // slider.value
 
 //@property (strong, nonatomic) NSMutableArray *flippedImageHistory;
 @property (nonatomic) BOOL resetArgument;
@@ -66,24 +66,6 @@
     
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex==1) {
-        self.game=nil;
-        self.flipCount=0;
-        [self updateUI];
-        
-        self.displayMessage.text=[NSString stringWithFormat:@"lets play!!"];
-        self.displayCards.text=[NSString stringWithFormat:@"select cards to play, cheers!!"];
-        
-        self.historyLabel.text=@"";
-        [self.slidePosition setValue:0];
-
-    } else {
-        [self.setDifficultyLevel setEnabled:YES forSegmentAtIndex:0];
-        [self.setDifficultyLevel setEnabled:YES forSegmentAtIndex:1];
-        self.historyLabel.alpha=0;
-    }
-}
 
 #pragma mark - Update UI
 
@@ -98,7 +80,7 @@
         cardButton.enabled=!card.isUnplayable;
         cardButton.alpha =(card.isUnplayable ? 0.5:1.0);
     }
-    self.displayMessage.text=[NSString stringWithFormat:@"%@", self.game.messageFromMatch];
+    self.displayMessageLabel.text=[NSString stringWithFormat:@"%@", self.game.messageAfterCardsMatch];
     self.scoreLabel.text=[NSString stringWithFormat:@"score: %d",self.game.score];
     
 }
@@ -114,15 +96,15 @@
 // models decide which button is in selected state
 - (IBAction)flipCard:(UIButton *)sender {
     
-    NSString *index=[NSString stringWithFormat:@"%d",[self.cardButtons indexOfObject:sender]];
+    // NSString *index=[NSString stringWithFormat:@"%d",[self.cardButtons indexOfObject:sender]];
     //[self.flippedImageHistory insertObject:index atIndex:self.flipCount];
     
     
     [self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
 
     self.flipCount++;
-    [self.slidePosition setValue:self.flipCount animated:NO];
-    self.displayCards.text=[NSString stringWithFormat:@"selected card: %@", [self.game cardAtIndex:[self.cardButtons indexOfObject:sender]].contents];
+    [self.slider setValue:self.flipCount animated:NO];
+    self.displayCardsLabel.text=[NSString stringWithFormat:@"selected card: %@", [self.game cardAtIndex:[self.cardButtons indexOfObject:sender]].contents];
    
     [self updateUI];
 }
@@ -153,10 +135,30 @@
     
 }
 
-- (IBAction)sliderPos:(UISlider *)sender {
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==1) {
+        self.game=nil;
+        self.flipCount=0;
+        [self updateUI];
+        
+        self.displayMessageLabel.text=[NSString stringWithFormat:@"lets play!!"];
+        self.displayCardsLabel.text=[NSString stringWithFormat:@"select cards to play, cheers!!"];
+        
+        self.historyLabel.text=@"";
+        [self.slider setValue:0];
+        
+    } else {
+        [self.setDifficultyLevel setEnabled:YES forSegmentAtIndex:0];
+        [self.setDifficultyLevel setEnabled:YES forSegmentAtIndex:1];
+        self.historyLabel.alpha=0;
+    }
+}
+
+
+- (IBAction)sliderPosition:(UISlider *)sender {
     if (sender.value<self.flipCount) {
         
-        int index=[self.slidePosition value];
+        int index=[self.slider value];
         
         self.historyLabel.text=[NSString stringWithFormat:@"%@",[self.game flippedHistorywithScrollValue:index]];
         self.historyLabel.alpha=0.5;

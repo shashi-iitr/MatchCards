@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SGPlayingCard : UIView
+@interface PlayingCardView : UIView
+
+@property (nonatomic) NSUInteger rank;
+@property (nonatomic) NSString *suit;
+
+@property (nonatomic, getter=isFaceUp) BOOL faceUp;
+
+- (void)pinch:(UIPinchGestureRecognizer *)gesture;
 
 @end

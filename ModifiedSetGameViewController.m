@@ -7,32 +7,49 @@
 //
 
 #import "ModifiedSetGameViewController.h"
+#import "PlayingCardView.h"
+#import "PlayingCard.h"
+#import "PlayingCardDeck.h"
 
 @interface ModifiedSetGameViewController ()
-
+@property (weak, nonatomic) IBOutlet PlayingCardView *sgPlayingCard;
+@property (nonatomic, strong) Deck *deck;
 @end
-
 @implementation ModifiedSetGameViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+- (Deck *)deck {
+    return _deck=_deck?:[[PlayingCardDeck alloc] init];
+}
+
+- (void)setSgPlayingCard:(PlayingCardView *)sgPlayingCard {
+    _sgPlayingCard=sgPlayingCard;
+    [self drawRandomPlayingCard];
+    [sgPlayingCard addGestureRecognizer:[[UIPinchGestureRecognizer alloc] initWithTarget:sgPlayingCard action:@selector(pinch:)]];
+}
+
+- (void)drawRandomPlayingCard {
+    Card *card=[self.deck drawRandomCard];
+    if ([card isKindOfClass:[PlayingCard class]]) {
+        PlayingCard *playingCard=(PlayingCard *)card;
+        self.sgPlayingCard.rank=playingCard.rank;
+        self.sgPlayingCard.suit=playingCard.suit;
     }
-    return self;
+}
+- (IBAction)pinchFaceCard:(UIPinchGestureRecognizer *)sender {
+    [self.sgPlayingCard pinch:sender];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)swipe:(UISwipeGestureRecognizer *)sender {
+    [UIView transitionWithView:self.sgPlayingCard
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^{
+                        if (!self.sgPlayingCard.faceUp) {
+                            [self drawRandomPlayingCard];
+                        }
+                        self.sgPlayingCard.faceUp=!self.sgPlayingCard.faceUp;}
+                    completion:NULL];
+    
 }
 
 @end
