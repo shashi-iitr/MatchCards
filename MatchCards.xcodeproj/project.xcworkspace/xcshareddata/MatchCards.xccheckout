@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BE14B524-1E3A-4B38-93C4-5B6D51D51522</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MatchCards</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EB7BB9F7-FB7D-42EA-9043-9916EDC2E86B</key>
+		<string>https://github.com/shashi-iitr/MatchCards.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MatchCards.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EB7BB9F7-FB7D-42EA-9043-9916EDC2E86B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/shashi-iitr/MatchCards.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EB7BB9F7-FB7D-42EA-9043-9916EDC2E86B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EB7BB9F7-FB7D-42EA-9043-9916EDC2E86B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MatchCards</string>
+		</dict>
+	</array>
+</dict>
+</plist>
